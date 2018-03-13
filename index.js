@@ -27,16 +27,20 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
   }
 
   unwrapChildren() {
-    // plain js rocks!
-    // https://plainjs.com/javascript/manipulation/unwrap-a-dom-element-35/
-    if (!this.div.parentNode) {
-      return;
-    }
-    this.orphans = [];
-    while (this.div.firstChild) {
-      this.orphans.push(this.div.firstChild);
-      this.div.parentNode.insertBefore(this.div.firstChild, this.div);
-    }
+    // defer first to style calculation to ensure CSS transitions can happen:
+    // https://stackoverflow.com/a/24195559/4956731
+    setTimeout(() => {
+      // plain js rocks!
+      // https://plainjs.com/javascript/manipulation/unwrap-a-dom-element-35/
+      if (!this.div.parentNode) {
+        return;
+      }
+      this.orphans = [];
+      while (this.div.firstChild) {
+        this.orphans.push(this.div.firstChild);
+        this.div.parentNode.insertBefore(this.div.firstChild, this.div);
+      }
+    });
   }
 
   rewrapChildren() {
