@@ -21,5 +21,17 @@
   "license": "MIT",
   "peerDependencies": {
     "react": ">=0.14.0"
-  }
+  },
+  "dependencies": {
+    "react": "^16.2.0"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benwiley4000/react-dot-fragment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benwiley4000/react-dot-fragment/issues"
+  },
+  "homepage": "https://github.com/benwiley4000/react-dot-fragment#readme"
 }
