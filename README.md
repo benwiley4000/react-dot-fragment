@@ -1,6 +1,6 @@
 # react-dot-fragment
 
-This is a very simple polyfill for React 16's `<React.Fragment>` (a.k.a. `<>`) component which allows a component to return a set of children without a wrapper DOM element.
+This is a very simple ponyfill for React 16's `<React.Fragment>` (a.k.a. `<>`) component which allows a component to return a set of children without a wrapper DOM element.
 
 ## example
 
