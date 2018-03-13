@@ -24,8 +24,12 @@
       ul li a {
         color: inherit;
       }
+      h1 a,
       pre a {
         font-size: inherit;
+      }
+      h1 a {
+        color: inherit;
       }
       .footer {
         margin-top: 2rem;
@@ -34,7 +38,12 @@
     </style>
   </head>
   <body>
-    <h1 class="header">React Dot Fragment (React v{version})</h1>
+    <h1 class="header">
+      <a href="https://github.com/benwiley4000/react-dot-fragment">
+        React Dot Fragment
+      </a>
+      (React v{version})
+    </h1>
     <ul class="list"></ul>
     <a href="https://www.npmjs.com/package/react-dot-fragment">
       npm install react-dot-fragment
@@ -59,7 +68,7 @@
     <script src="index.js"></script>
     <script>
       var header = document.querySelector('.header');
-      header.innerText = header.innerText.replace('{version}', React.version);
+      header.innerHTML = header.innerHTML.replace('{version}', React.version);
 
       document.querySelector('.container-markup').innerText =
         document.querySelector('.list').outerHTML;
