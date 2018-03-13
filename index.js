@@ -2,7 +2,7 @@ if (typeof require === 'function') {
   var React = require('React');
 }
 
-class Fragment extends React.Component {
+var Fragment = React.Fragment || class _Fragment extends React.Component {
   constructor(props) {
     super(props);
     this.refFn = this.refFn.bind(this);
@@ -35,7 +35,7 @@ class Fragment extends React.Component {
   render() {
     return React.createElement('div', { ref: this.refFn }, this.props.children);
   }
-}
+};
 
 if (typeof module !== 'undefined' && module) {
   module.exports = Fragment;
