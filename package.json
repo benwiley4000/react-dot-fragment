@@ -1,0 +1,25 @@
+{
+  "name": "react-dot-fragment",
+  "version": "0.1.0",
+  "description": "Polyfill for React 16's <React.Fragment> component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "keywords": [
+    "react",
+    "fragment",
+    "react 16",
+    "polyfill",
+    "ponyfill",
+    "hacks"
+  ],
+  "author": "Ben Wiley",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": ">=0.14.0"
+  }
+}
