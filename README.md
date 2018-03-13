@@ -8,6 +8,8 @@ npm install react-dot-fragment
 
 ## example
 
+([see a working example here](https://benwiley4000.github.io/react-dot-fragment/))
+
 ```html
 <html>
 <body>
