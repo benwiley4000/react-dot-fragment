@@ -108,16 +108,18 @@ ReactDOM.render(
 );
     </script>
     <script>
-      document.querySelector('.code').innerText =
-        document.getElementById('fragment').innerText;
-      document.querySelector('.code').innerHTML =
-        document.querySelector('.code').innerHTML
-          .replace(
-            '= React.Fragment',
-            '= <a href="https://reactjs.org/docs/fragments.html">React.Fragment</a>'
-          );
-      document.querySelector('.markup').innerText =
-        document.querySelector('.list').outerHTML.split('><').join('>\n<');
+      setTimeout(function() { // wait a moment
+        document.querySelector('.code').innerText =
+          document.getElementById('fragment').innerText;
+        document.querySelector('.code').innerHTML =
+          document.querySelector('.code').innerHTML
+            .replace(
+              '= React.Fragment',
+              '= <a href="https://reactjs.org/docs/fragments.html">React.Fragment</a>'
+            );
+        document.querySelector('.markup').innerText =
+          document.querySelector('.list').outerHTML.split('><').join('>\n<');
+      });
     </script>
   </body>
 </html>
