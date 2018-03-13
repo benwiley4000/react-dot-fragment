@@ -1,5 +1,5 @@
 if (typeof require === 'function') {
-  var React = require('React');
+  var React = require('react');
 }
 
 var Fragment = React.Fragment || class _Fragment extends React.Component {
