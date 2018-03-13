@@ -6,6 +6,7 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
   constructor(props) {
     super(props);
     this.refFn = this.refFn.bind(this);
+    this.orphans = [];
   }
 
   refFn(div) {
@@ -14,6 +15,11 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
 
   componentDidMount() {
     this.unwrapChildren();
+    this.div.style.display = 'none';
+  }
+
+  componentWillReceiveProps() {
+    this.rewrapChildren();
   }
 
   componentDidUpdate() {
@@ -26,10 +32,20 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     if (!this.div.parentNode) {
       return;
     }
+    this.orphans = [];
     while (this.div.firstChild) {
+      this.orphans.push(this.div.firstChild);
       this.div.parentNode.insertBefore(this.div.firstChild, this.div);
     }
-    this.div.parentNode.removeChild(this.div);
+  }
+
+  rewrapChildren() {
+    if (!this.div.parentNode) {
+      return;
+    }
+    for (const orphan of this.orphans) {
+      this.div.appendChild(orphan);
+    }
   }
 
   render() {
