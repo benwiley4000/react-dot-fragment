@@ -1,9 +1,11 @@
 {
   "name": "react-dot-fragment",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Ponyfill for React 16's <React.Fragment> component",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
+    "build": "mkdirp lib && babel index.js -o lib/index.js --presets=es2015",
+    "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -21,6 +23,11 @@
   "license": "MIT",
   "peerDependencies": {
     "react": "^15.0.0 || ^16.0.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "mkdirp": "^0.5.1"
   },
   "repository": {
     "type": "git",
