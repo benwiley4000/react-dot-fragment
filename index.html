@@ -24,6 +24,9 @@
       ul li a {
         color: inherit;
       }
+      pre a {
+        font-size: inherit;
+      }
     </style>
   </head>
   <body>
@@ -88,6 +91,12 @@ ReactDOM.render(
     <script>
       document.querySelector('.code').innerText =
         document.getElementById('fragment').innerText;
+      document.querySelector('.code').innerHTML =
+        document.querySelector('.code').innerHTML
+          .replace(
+            '= React.Fragment',
+            '= <a href="https://reactjs.org/docs/fragments.html">React.Fragment</a>'
+          );
       document.querySelector('.markup').innerText =
         document.querySelector('.list').outerHTML.split('><').join('>\n<');
     </script>
