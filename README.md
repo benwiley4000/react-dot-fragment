@@ -23,14 +23,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Fragment from 'react-dot-fragment';
 
-React.Fragment = React.Fragment || Fragment;
-
 ReactDOM.render(
-  <React.Fragment>
+  <Fragment>
     <li>a</li>
     <li>b</li>
     <li>c</li>
-  </React.Fragment>,
+  </Fragment>,
   document.querySelector('ul')
 );
 ```
