@@ -21,6 +21,9 @@
         font-weight: bold;
         text-decoration: underline;
       }
+      ul li a {
+        color: inherit;
+      }
     </style>
   </head>
   <body>
@@ -72,7 +75,11 @@ ReactDOM.render(
     React.createElement(
       'li',
       { style: { color: 'rgb(0, 228, 54)' } },
-      'work'
+      React.createElement(
+        'a',
+        { href: 'https://github.com/benwiley4000/react-dot-fragment/blob/master/index.js' },
+        'work'
+      )
     ),
   ),
   document.querySelector('.list')
