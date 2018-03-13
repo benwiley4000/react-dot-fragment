@@ -20,7 +20,7 @@
   "author": "Ben Wiley",
   "license": "MIT",
   "peerDependencies": {
-    "react": ">=0.14.0"
+    "react": "^15.0.0 || ^16.0.0"
   },
   "repository": {
     "type": "git",
