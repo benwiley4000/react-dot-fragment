@@ -58,7 +58,7 @@ Generally, if you want to use `React.Fragment`, it's probably best to just upgra
 
 ## compatibility
 
-This module works with React 15 or later. It works in Node or in any browser which supports ES2015 class syntax. *TODO: remove the environment limitation by using Babel (#2).*
+This module works with React 15 or later. It works in Node or in any browser which supports ES2015 class syntax. *TODO: remove the environment limitation by using Babel ([#2](https://github.com/benwiley4000/react-dot-fragment/issues/2)).*
 
 ## contributing
 
