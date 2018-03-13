@@ -1,6 +1,6 @@
 {
   "name": "react-dot-fragment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Ponyfill for React 16's <React.Fragment> component",
   "main": "index.js",
   "scripts": {
@@ -22,10 +22,6 @@
   "peerDependencies": {
     "react": ">=0.14.0"
   },
-  "dependencies": {
-    "react": "^16.2.0"
-  },
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/benwiley4000/react-dot-fragment.git"
