@@ -18,10 +18,6 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     this.div.style.display = 'none';
   }
 
-  componentWillReceiveProps() {
-    this.rewrapChildren();
-  }
-
   componentDidUpdate() {
     this.unwrapChildren();
   }
@@ -44,7 +40,7 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
   }
 
   rewrapChildren() {
-    if (!this.div.parentNode) {
+    if (!(this.div && this.div.parentNode)) {
       return;
     }
     for (const orphan of this.orphans) {
@@ -53,6 +49,9 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
   }
 
   render() {
+    // sorry for the side effects! 😭
+    this.rewrapChildren();
+
     return React.createElement('div', { ref: this.refFn }, this.props.children);
   }
 };
