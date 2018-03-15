@@ -46,6 +46,19 @@ The DOM becomes:
 </html>
 ```
 
+## how does it work?
+
+1. In the render method of our `Fragment` component, wrap the the `children` prop with a `<div>`
+2. After the component mounts, attach the child DOM nodes to our `<div>`'s parent DOM node
+3. Hide the `<div>` from the DOM so it doesn't affect any layout
+3. On update:
+
+    a. Move the elevated child nodes back inside the `<div>`
+
+    b. Let React re-render
+
+    c. Move the new child nodes back up to the `<div>`'s parent node
+
 ## rationale
 
 You might want to use this for one of a couple of *good* reasons:
