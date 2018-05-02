@@ -62,7 +62,7 @@ The DOM becomes:
 ## rationale
 
 You might want to use this for one of a couple of *good* reasons:
-* You have some code that needs to be tested in React 15 or earlier, but it relies on `React.Fragment`.
+* You have some code that needs to be tested in React 15, but it relies on `React.Fragment`.
 * You maintain a React library which supports React 16 features, but you want backward compatibility.
 
 Generally, if you want to use `React.Fragment`, it's probably best to just upgrade to React 16.
