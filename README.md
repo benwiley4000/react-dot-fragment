@@ -71,7 +71,7 @@ Generally, if you want to use `React.Fragment`, it's probably best to just upgra
 
 This module works with React 15 or later. It works in Node or in the browser.
 
-Since the current solution relies on the DOM, this module is *not* compatible with React Native or other React platforms without access to the DOM API. If you would like to help us fix that, [please open a PR!](https://github.com/benwiley4000/react-dot-fragment/issues/3).
+Since the current solution relies on the DOM, this module is *not* compatible with React Native or other React platforms without access to the DOM API. If you would like to help us fix that, [please open a PR](https://github.com/benwiley4000/react-dot-fragment/issues/3)!
 
 ## contributing
 
