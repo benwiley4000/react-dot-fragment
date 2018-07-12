@@ -62,7 +62,7 @@ The DOM becomes:
 ## rationale
 
 You might want to use this for one of a couple of *good* reasons:
-* You have some code that needs to be tested in React 15 or earlier, but it relies on `React.Fragment`.
+* You have some code that needs to be tested in React 15, but it relies on `React.Fragment`.
 * You maintain a React library which supports React 16 features, but you want backward compatibility.
 
 Generally, if you want to use `React.Fragment`, it's probably best to just upgrade to React 16.
@@ -70,6 +70,8 @@ Generally, if you want to use `React.Fragment`, it's probably best to just upgra
 ## compatibility
 
 This module works with React 15 or later. It works in Node or in the browser.
+
+Since the current solution relies on the DOM, this module is *not* compatible with React Native or other React platforms without access to the DOM API. If you would like to help us fix that, [please open a PR](https://github.com/benwiley4000/react-dot-fragment/issues/3)!
 
 ## contributing
 
