@@ -22,6 +22,10 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     this.unwrapChildren();
   }
 
+  componentWillUnmount() {
+    this.rewrapChildren();
+  }
+
   unwrapChildren() {
     // defer first to style calculation to ensure CSS transitions can happen:
     // https://stackoverflow.com/a/24195559/4956731
