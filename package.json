@@ -1,6 +1,6 @@
 {
   "name": "react-dot-fragment",
-  "version": "0.2.6",
+  "version": "0.2.7",
   "description": "Ponyfill for React 16's <React.Fragment> component",
   "main": "lib/index.js",
   "scripts": {
