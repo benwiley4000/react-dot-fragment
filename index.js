@@ -7,6 +7,7 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     super(props);
     this.refFn = this.refFn.bind(this);
     this.orphans = [];
+    this.focusedDescendantElement = null;
   }
 
   refFn(div) {
@@ -35,11 +36,13 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
       if (!this.div.parentNode) {
         return;
       }
+      this.saveFocusedDescendantElement(this.div);
       this.orphans = [];
       while (this.div.firstChild) {
         this.orphans.push(this.div.firstChild);
         this.div.parentNode.insertBefore(this.div.firstChild, this.div);
       }
+      this.restoreFocusedDescendantElement();
     });
   }
 
@@ -47,8 +50,24 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     if (!(this.div && this.div.parentNode)) {
       return;
     }
-    for (const orphan of this.orphans) {
-      this.div.appendChild(orphan);
+    if (this.orphans.length) {
+      this.saveFocusedDescendantElement(this.orphans[0].parentNode);
+      for (const orphan of this.orphans) {
+        this.div.appendChild(orphan);
+      }
+    }
+  }
+
+  saveFocusedDescendantElement(ancestorElement) {
+    if (ancestorElement.contains(document.activeElement)) {
+      this.focusedDescendantElement = document.activeElement;
+    }
+  }
+
+  restoreFocusedDescendantElement() {
+    if (this.focusedDescendantElement) {
+      this.focusedDescendantElement.focus();
+      this.focusedDescendantElement = null;
     }
   }
 
