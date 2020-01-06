@@ -33,7 +33,7 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     setTimeout(() => {
       // plain js rocks!
       // https://plainjs.com/javascript/manipulation/unwrap-a-dom-element-35/
-      if (!this.div.parentNode) {
+      if (!(this.div && this.div.parentNode)) {
         return;
       }
       this.saveFocusedDescendantElement(this.div);
