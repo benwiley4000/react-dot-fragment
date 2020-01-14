@@ -30,7 +30,7 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
   unwrapChildren() {
     // defer first to style calculation to ensure CSS transitions can happen:
     // https://stackoverflow.com/a/24195559/4956731
-    setTimeout(() => {
+    this.unwrapTimeout = setTimeout(() => {
       // plain js rocks!
       // https://plainjs.com/javascript/manipulation/unwrap-a-dom-element-35/
       if (!this.div.parentNode) {
@@ -47,12 +47,14 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
   }
 
   rewrapChildren() {
+    clearTimeout(this.unwrapTimeout);
     if (!(this.div && this.div.parentNode)) {
       return;
     }
     if (this.orphans.length) {
       this.saveFocusedDescendantElement(this.orphans[0].parentNode);
-      for (const orphan of this.orphans) {
+      let orphan;
+      while (orphan = this.orphans.shift()) {
         this.div.appendChild(orphan);
       }
     }
