@@ -8,6 +8,7 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
     this.refFn = this.refFn.bind(this);
     this.orphans = [];
     this.focusedDescendantElement = null;
+    this.parentNode = null;
   }
 
   refFn(div) {
@@ -42,16 +43,25 @@ var Fragment = React.Fragment || class _Fragment extends React.Component {
         this.orphans.push(this.div.firstChild);
         this.div.parentNode.insertBefore(this.div.firstChild, this.div);
       }
+      this.parentNode = this.div.parentNode;
+      if (this.orphans.length) {
+        // it's only safe to remove the wrapper div
+        // if the fragment has some child dom elements,
+        // since otherwise we have no way to remember
+        // our position among the sibling elements.
+        this.parentNode.removeChild(this.div);
+      }
       this.restoreFocusedDescendantElement();
     });
   }
 
   rewrapChildren() {
     clearTimeout(this.unwrapTimeout);
-    if (!(this.div && this.div.parentNode)) {
+    if (!(this.div && this.parentNode && this.parentNode.parentNode)) {
       return;
     }
     if (this.orphans.length) {
+      this.parentNode.insertBefore(this.div, this.orphans[0]);
       this.saveFocusedDescendantElement(this.orphans[0].parentNode);
       let orphan;
       while (orphan = this.orphans.shift()) {
